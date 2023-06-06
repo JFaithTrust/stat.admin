@@ -14,6 +14,11 @@ export default {
         },
 
     },
+    methods: {
+        createData(){
+            
+        }
+    }
     
 }
 </script>
