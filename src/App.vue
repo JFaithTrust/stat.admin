@@ -1,5 +1,5 @@
 <template>
-  <router-view/>
+  <router-view class="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-500 via-blue-700 to-indigo-900" />
 </template>
 
 <style>

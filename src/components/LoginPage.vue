@@ -20,27 +20,10 @@
             </h1>
           </div>
           <div class="forms text-white">
-            <form @submit.prevent="onSubmit">
-              <div class="mb-6">
-                <label for="username" class="block mb-2 text-sm font-medium">Логин</label>
-                <input type="text" class="text-black text-sm rounded-lg block w-full p-2.5 shadow-md" />
-                <div v-if="!validUsername" class="text-xs text-red-500 mt-1">
-                  *Введите корректный e-mail адрес
-                </div>
-              </div>
-
-              <div class="mb-6">
-                <label for="password" class="block mb-2 text-sm font-medium">Пароль</label>
-                <input type="password" id="password" class="text-black text-sm rounded-lg block w-full p-2.5 shadow-md" />
-                <div v-if="!validPassword" class="text-xs text-red-500 mt-1">
-                  *Пароль должен содерждать минимум 8 знаков
-                </div>
-              </div>
-
-              <button type="submit"
-                class="bg-blue-400 shadow-md focus:ring-4 focus:outline-non font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center">
-                Войти
-              </button>
+            <form>
+              <InputUI :label="'Login'" :type="'text'" v-model="userName" />
+              <InputUI :label="'Password'" :type="'password'" v-model="password" /> 
+              <ButtonUI type="submit" @click="submitHandler">Войти</ButtonUI>
             </form>
           </div>
         </div>
@@ -55,8 +38,32 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-
+  data(){ 
+    return {
+      userName: '',
+      password: ''
+    }
+  },
+  methods: {
+    async submitHandler(e) {
+			e.preventDefault()
+			const data = {
+        password: this.password,
+				userName: this.userName,
+			}
+      try {
+        const res = await axios.post('http://192.168.5.2:5000/api/Account/login', data);
+        sessionStorage.setItem(this.$globals.TOKEN, res.data.token)
+        this.$router.push({ name: "dashboard" });
+      } catch (error) {
+        console.log('Autorezation failed!!!');
+      }
+      
+			
+		},
+  }
 }
 </script>
 

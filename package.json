@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "autoprefixer": "^10",
+    "axios": "^1.4.0",
+    "chart.js": "^4.3.0",
     "core-js": "^3.8.3",
     "postcss": "^8",
     "tailwindcss": "^3",
