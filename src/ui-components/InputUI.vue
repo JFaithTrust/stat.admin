@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div class="mb-6">
         <label :for="label" class="block mb-2 text-sm font-medium">{{ label }}</label>
         <input :type="type" :id="label" @input="updateInput" :value="modelValue" class="text-black text-sm rounded-lg block w-full p-2.5 shadow-md" />
@@ -19,6 +19,5 @@ export default {
 	},
 }
 </script>
-<style lang="">
-    
+<style>
 </style>

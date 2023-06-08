@@ -1,5 +1,5 @@
 <template lang="">
-    <button class="bg-blue-400 shadow-md focus:ring-4 focus:outline-non font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center">
+    <button class="bg-blue-400 shadow-md focus:ring-4 focus:outline-non font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center text-white">
         <slot></slot>
     </button>
 </template>
@@ -9,6 +9,4 @@ export default {
     
 }
 </script>
-<style>
-    
-</style>
+<style></style>
